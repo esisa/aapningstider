@@ -1,0 +1,22 @@
+{
+  "name": "aapningstider",
+  "version": "1.0.0",
+  "description": "Gir deg åpningstider i HTML eller JSON for objekter i OpenStreetMap ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/esisa/aapningstider.git"
+  },
+  "author": "Espen Oldeman Lund",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/esisa/aapningstider/issues"
+  },
+  "homepage": "https://github.com/esisa/aapningstider",
+  "dependencies": {
+    "express": "^4.10.4"
+  }
+}
