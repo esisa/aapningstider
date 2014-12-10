@@ -4,6 +4,47 @@ var opening_hours = require('opening_hours');
 var express = require('express')
 var app = express()
 
+app.get('/today/:ohString', function (req, res) {
+
+	var openings = "";
+	var weekdays = ['Søn', 'Man', 'Tir', 'Ons', 'Tors', 'Fre', 'Lør']
+
+	var oh = new opening_hours(req.params.ohString);
+	
+	var today;
+
+	// Check if it is open today
+	var openToday = oh.getState();
+
+	if(openToday) {
+
+		var today = new Date();
+		var from = today.setHours(0);
+		var to = today.setHours(23);
+		var intervals = oh.getOpenIntervals(new Date(from), new Date(to));
+
+		for (var i in intervals) {
+	    	var fraTid = intervals[i][0].getHours();
+	    	var tilTid = intervals[i][1].getHours();
+
+	    	today = fraTid + "-" + tilTid;
+		}
+
+	}
+	else {
+		today = "Stengt";
+	}
+
+
+
+	
+	var output = {"today": today};
+
+    res.setHeader('Content-Type', 'application/json');
+	res.end(JSON.stringify(output));
+})
+
+
 app.get('/:ohString', function (req, res) {
 
 	var openings = "";
