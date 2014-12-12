@@ -60,6 +60,10 @@ app.get('/:ohString', function (req, res) {
 	var from = new Date(curr.setDate(first));
 	var to = new Date(curr.setDate(last));
 
+	// Change hour
+	to = new Date(to.setHours(23))
+	from = new Date(from.setHours(00))
+
 	var openings = "";
 	var intervals = oh.getOpenIntervals(from, to);
 
