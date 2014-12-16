@@ -80,7 +80,7 @@ app.get('/:ohString', function (req, res) {
 	    var fraDag = intervals[i][0].getDay();
 	    var fraTid = intervals[i][0].getHours();
 	    var tilTid = intervals[i][1].getHours();
-	    console.log(fraDag);
+	    //console.log(fraDag);
 	    switch (fraDag) {
 		    case 1:
 		        monday = fraTid + "-" + tilTid;
